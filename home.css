@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Cabeçalho do Site*/
+
+header{
+    background-image: url("https://img.freepik.com/fotos-gratis/composicao-de-comida-brasileira-deliciosa-de-alto-angulo_23-2148739223.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.bgHeader{
+    width: 100%;
+    height: 370px;
+    background-color: #000000b3;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.h1-header{
+    text-align: center;
+    font-weight: 400;
+    font-size: 38px;
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.text-s{
+    color: yellow;
+    font-size: 56px;
+    font-weight: bold;
+    font-family: "Dancing Script", sans-serif;
+}
+
+.p-header{
+    font-family: "Poppins", sans-serif;
+}
+
+.cx-hours{
+
+    background-color: green;
+    padding: 5px 15px;
+    border-radius: 8px;
+}
+
+/*Menu, parte do Cardapio*/
+
+.menu{
+    padding: 15px 2rem; 
+    margin-bottom: 4rem;
+}
+
+.title-menu{
+    width: 100%;
+    text-align: center;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 32px;
+}
+
+/*Área dos Produtos*/
+
+.products{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #181717f5;
+}
+
+/*Produtos Items*/
+
+.product-food{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+
+    background-color: yellow;
+    border-radius: 10px;
+}
+
+.description-products{
+    width: 100%;
+}
+
+.img-food{
+    width: 110px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.h2-food{
+    font-size: large;
+}
+
+.text-under{
+    border-bottom: 1px solid black;
+}
+
+.price-button{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.btn-products{
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #08af08;
+    color: white;
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*Footer parte do carrinho*/
+
+.footer{
+    width: 100%;
+    background-color: #08af08;
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 0;
+}
+
+.btn-cart{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+
+}
+
+/*Itens do pedido no carrinho*/
+
+.cartItems{
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    background-color: #00000099;
+    font-family: "Poppins", sans-serif;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart{
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 15px;
+}
+
+.h2-cart{
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.btns-cartItens{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btnCloseCart, .btnFinish{
+    border: .5px solid gray;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btnFinish{
+    border: none;
+    background-color: #08af08;
+    color: white;
+}
+
+
+
+

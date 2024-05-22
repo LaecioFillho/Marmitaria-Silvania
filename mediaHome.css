@@ -1,0 +1,11 @@
+@media (max-width: 920px) {
+
+    .menu{
+        padding: 15px 1rem; 
+    }
+
+    .products{
+        grid-template-columns: 100%;
+    }
+    
+}
