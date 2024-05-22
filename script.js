@@ -163,7 +163,7 @@ buttonFinishOrder.addEventListener("click", function(){
     //Enviar o pedido para api whats
     const itemsCart = cart.map((item) => {
         return (
-        ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+        ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price}|`
         )
     }).join("")
 
@@ -172,6 +172,5 @@ buttonFinishOrder.addEventListener("click", function(){
 
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
 
-    cart = [];
     updateCart();
 })
