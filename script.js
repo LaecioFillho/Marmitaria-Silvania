@@ -169,7 +169,7 @@ buttonFinishOrder.addEventListener("click", function(){
         Preço: R$ ${item.price},00 
         `
         )
-    }).join(" teste ")
+    }).join("--------------------------- ")
 
     const message = encodeURIComponent(itemsCart)
     const phone = "5588998097570"
