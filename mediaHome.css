@@ -1,5 +1,16 @@
 @media (max-width: 920px) {
 
+    /*Fonts*/
+    .h2-food{
+        font-size: 14px;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    /*Cardapio*/
+
     .menu{
         padding: 15px 1rem; 
     }

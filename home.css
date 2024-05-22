@@ -87,7 +87,7 @@ header{
     gap: 8px;
     padding: 10px;
 
-    background-color: yellow;
+    background-color: #e9e934;
     border-radius: 10px;
 }
 
@@ -199,6 +199,17 @@ header{
     justify-content: space-between;
 }
 
+
+/*Cart Carrinho de Pedidos*/
+
+.addCartItems{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    overflow: auto;
+}
+
 .btnCloseCart, .btnFinish{
     border: .5px solid gray;
     padding: 10px 20px;
@@ -213,6 +224,35 @@ header{
     background-color: #08af08;
     color: white;
 }
+
+
+/*Items do pedido no carrinho*/
+
+.itemPedido{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.p-pedido{
+    font-weight: 500;
+}
+
+.p-count{
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.removeItem{
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+
 
 
 

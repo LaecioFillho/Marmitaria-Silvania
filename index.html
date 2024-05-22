@@ -17,7 +17,7 @@
         <aside class="bgHeader">
             <h1 class="h1-header">Marmitaria <br>da <br><span class="text-s">Silvânia</span></h1>
             <p class="p-header">Rua Santa Isabel, n° 2153, Pirajá</p>
-            <div class="cx-hours">
+            <div class="cx-hours" id="hours-func">
                 <p class="p-header">Segunda à Sábado 8:00h ás 20:00h</p>
             </div>
         </aside>
@@ -39,7 +39,10 @@
                         <p>Baião, carne, macarrão, farofa ou cuscuz e salada.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 13,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products" 
+                                data-name="PF - Prato Feito(Baião)"
+                                data-price=13>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -55,7 +58,10 @@
                         <p>Arroz e Feijão, carne, macarrão, farofa ou cuscuz e salada.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 13,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products"
+                                data-name="PF - Prato Feito(Arroz e Feijão)"
+                                data-price=13>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -71,7 +77,10 @@
                         <p>Serve 3 pessoas, acompanhamento de uma porção de arroz.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 22,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products"
+                                data-name="Porção Feijoada"
+                                data-price=22>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -87,7 +96,10 @@
                         <p>Porção de Fava cozida temperada com picadinhos de porco.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 14,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products"
+                                data-name="Favada"
+                                data-price=14>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -113,7 +125,10 @@
                         <p>Coca-Cola gelada para beber e se refrescar.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 5,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products"
+                                data-name="Coca-Cola - Lata"
+                                data-price=5>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -130,7 +145,50 @@
                         <p>Guarana antartica gelada para beber e se refrescar.</p>
                         <div class="price-button">
                             <h2 class="h2-food"><span class="text-under">R$ 5,00</span></h2>
-                            <button class="btn-products">
+                            <button 
+                                class="btn-products"
+                                data-name="Guarana - Lata"
+                                data-price=5>
+                                <i class="material-symbols-outlined">add_shopping_cart</i>
+                                Pedir
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                <!--Sukita - Lata-->
+                <aside class="product-food">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaWBiA6D8huil4I6ozqB230uQUkPrGChWI3RHUrQhAXQ&s" 
+                    alt="" class="img-food">
+
+                    <div class="description-products">
+                        <h2 class="h2-food">Sukita - Lata</h2>
+                        <p>Sukita gelada para beber e se refrescar.</p>
+                        <div class="price-button">
+                            <h2 class="h2-food"><span class="text-under">R$ 5,00</span></h2>
+                            <button 
+                                class="btn-products"
+                                data-name="Sukita - Lata"
+                                data-price=5>
+                                <i class="material-symbols-outlined">add_shopping_cart</i>
+                                Pedir
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                <!--Pepsi - Lata-->
+                <aside class="product-food">
+                    <img src="https://m.media-amazon.com/images/I/51By-TTpS2L._AC_UF1000,1000_QL80_.jpg" 
+                    alt="" class="img-food">
+
+                    <div class="description-products">
+                        <h2 class="h2-food">Pepsi - Lata</h2>
+                        <p>Pepsi gelada para beber e se refrescar.</p>
+                        <div class="price-button">
+                            <h2 class="h2-food"><span class="text-under">R$ 5,00</span></h2>
+                            <button 
+                                class="btn-products"
+                                data-name="Pepsi - Lata"
+                                data-price=5>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
                             </button>
@@ -142,16 +200,18 @@
     </main>
 
     <aside>
-        <div class="cartItems" id="cartItems">
+        <div class="cartItems">
             <div class="cart">
                 <h2 class="h2-cart">Meu Pedido</h2>
     
-                <div id="addCartItems" class="flex justify-between mb-2 flex-col max-h-[400px] overflow-auto"></div>
-                    <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+                <div class="addCartItems">
+
+                </div>
+                    <p class="font-bold">Total: <span class="cart-total">0.00</span></p>
     
                     <div class="btns-cartItens">
-                        <button id="close-modal-btn" class="btnCloseCart">Fechar</button>
-                        <button id="checkout-btn" class="btnFinish">Finalizar pedido</button>
+                        <button class="btnCloseCart">Fechar</button>
+                        <button class="btnFinish">Finalizar pedido</button>
                     </div>
                 </div>
             </div>
@@ -159,12 +219,14 @@
     </aside>
 
     <footer class="footer">
-        <button class="btn-cart" id="cart-btn">
+        <button class="btn-cart">
             <i <span class="material-symbols-outlined">receipt</span></i>
             Ver Pedido
-            (<span id="cart-count">0</span>)
+            (<span class="cart-count-items">0</span>)
         </button>
     </footer>
 
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="script.js"></script>
 </html>
