@@ -164,7 +164,11 @@ buttonFinishOrder.addEventListener("click", function(){
     const itemsCart = cart.map((item) => {
         return (
         `
-        ${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price},00 |`
+        ${item.name} 
+        Quantidade: (${item.quantity}) 
+        Preço: R$ ${item.price},00 
+        |
+        `
         )
     }).join("")
 
