@@ -169,7 +169,7 @@ buttonFinishOrder.addEventListener("click", function(){
     }).join("")
 
     const message = encodeURIComponent(itemsCart)
-    const phone = "88998097570"
+    const phone = "5588998097570"
 
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
 
