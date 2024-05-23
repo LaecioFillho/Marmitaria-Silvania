@@ -16,7 +16,9 @@ const countItemsCart = document.querySelector('.cart-count-items')
 const typesMeat = document.querySelector('.typesMeat')
 const MeatAlternative = document.querySelector('.p-alternative')
 
+let name1 = ""
 let meat = ""
+let price = ""
 let cart =[]
 const [buttonsMeat1, buttonsMeat2] = buttonOpenChoice
 const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
@@ -64,26 +66,21 @@ cartItems.addEventListener("click", (event) => {
 
 //Obtêm as informações do que está sendo adicionado no pedido.
 
-btnChoice1.addEventListener('click', (event) => {
-    meat = "Frango - Frito"
-})
-
-
 menu.addEventListener("click", (event) => {
     let parentButton = event.target.closest('.btn-products')
   
     if(parentButton){
-        const name = parentButton.getAttribute("data-name")
-        const price = parseFloat(parentButton.getAttribute("data-price"))
-
-        if(meat != ""){
-          addToCart(name, price, meat) 
-        }else{
-          addToCart(name, price) 
-        }
-                
+        name1 = parentButton.getAttribute("data-name")
+        price = parseFloat(parentButton.getAttribute("data-price"))           
     }
 })
+
+btnChoice1.addEventListener('click', (event) => {
+  meat = "Frango - Frito"
+})
+
+addToCart(name1, price, meat) 
+
 
 //Adiciona os Items a Lista de pedido no Carrinho
 
