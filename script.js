@@ -15,6 +15,7 @@ const totalCart = document.querySelector('.cart-total')
 const countItemsCart = document.querySelector('.cart-count-items')
 const typesMeat = document.querySelector('.typesMeat')
 const MeatAlternative = document.querySelector('.p-alternative')
+const pfs = document.querySelector('.pf')
 
 let name1 = ""
 let meat = ""
@@ -66,21 +67,35 @@ cartItems.addEventListener("click", (event) => {
 
 //Obtêm as informações do que está sendo adicionado no pedido.
 
-menu.addEventListener("click", (event) => {
-    let parentButton = event.target.closest('.btn-products')
+pfs.addEventListener("click", (event) => {
+    let parentButton = event.target.closest('.btn-pf')
   
     if(parentButton){
         name1 = parentButton.getAttribute("data-name")
-        price = parseFloat(parentButton.getAttribute("data-price"))           
+        price = parseFloat(parentButton.getAttribute("data-price")) 
+        
+        typesMeat.addEventListener("click", (event) =>{
+          let parentButton = event.target.closest('.btn-choice')
+          
+            if(parentButton){
+                meat = parentButton.getAttribute("data-name") 
+                addToCart(name1, price, meat)
+            }     
+        })  
     }
 })
 
-btnChoice1.addEventListener('click', (event) => {
-  meat = "Frango - Frito"
+menu.addEventListener("click", (event) => {
+  let parentButton = event.target.closest('.btn-products')
+  
+  if(parentButton){
+      name1 = parentButton.getAttribute("data-name")
+      price = parseFloat(parentButton.getAttribute("data-price")) 
+      meat = ""
+
+      addToCart(name1, price, meat)
+  }
 })
-
-addToCart(name1, price, meat) 
-
 
 //Adiciona os Items a Lista de pedido no Carrinho
 
@@ -114,7 +129,7 @@ function updateCart(){
         <div class="itemPedido">
             <div>
                 <p class="p-pedido">${item.name}</p>
-                <p class="p-pedido p-alternative">${item.meat}</p>
+                <p class="p-pedido">${item.meat}</p>
                 <p>Quantidade: <span class="p-count">${item.quantity}<span></p>
                 <p class="p-pedido">R$ ${item.price.toFixed(2)}</p>
             </div>
@@ -213,7 +228,7 @@ buttonFinishOrder.addEventListener("click", function(){
            - Quantidade: (${item.quantity}); 
            - Preço: R$ ${item.price},00; `
         )
-    }).join("--------------------------- ")
+    }).join(" --------------------------- ")
 
     const message = encodeURIComponent(itemsCart)
     const phone = "5588998097570"

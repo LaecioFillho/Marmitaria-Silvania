@@ -69,7 +69,7 @@ header{
 
 /*Área dos Produtos*/
 
-.products{
+.products, .pf{
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 1rem;
@@ -115,7 +115,7 @@ header{
     margin-top: 8px;
 }
 
-.btn-products{
+.btn-products, .btn-pf{
     padding: 5px 10px;
     outline: none;
     border: none;
@@ -238,10 +238,6 @@ header{
 
 .p-pedido{
     font-weight: 500;
-}
-
-.p-alternative{
-    display: block;
 }
 
 .p-count{

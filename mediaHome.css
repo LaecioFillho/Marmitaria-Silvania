@@ -15,7 +15,7 @@
         padding: 15px 1rem; 
     }
 
-    .products{
+    .products, .pf{
         grid-template-columns: 100%;
     }
     
