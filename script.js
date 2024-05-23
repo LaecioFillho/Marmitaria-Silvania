@@ -16,6 +16,7 @@ const countItemsCart = document.querySelector('.cart-count-items')
 const typesMeat = document.querySelector('.typesMeat')
 const MeatAlternative = document.querySelector('.p-alternative')
 
+let meat = ""
 let cart =[]
 const [buttonsMeat1, buttonsMeat2] = buttonOpenChoice
 const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
@@ -63,17 +64,10 @@ cartItems.addEventListener("click", (event) => {
 
 //Obtêm as informações do que está sendo adicionado no pedido.
 
-typesMeat.addEventListener("click", (event) => {
-  let parentButton = event.target.closest('.btn-choice')
-  let parentButton2 = event.target.closest('.btn-choice')
-
-  if(parentButton && parentButton2){
-      const meat = parentButton.getAttribute("data-name")
-      const meat2 = parentButton2.getAttribute("data-name")
-      updateCart(meat, meat2)
-    
-  }
+btnChoice1.addEventListener('click', (event) => {
+    meat = "Frango - Frito"
 })
+
 
 menu.addEventListener("click", (event) => {
     let parentButton = event.target.closest('.btn-products')
@@ -81,14 +75,19 @@ menu.addEventListener("click", (event) => {
     if(parentButton){
         const name = parentButton.getAttribute("data-name")
         const price = parseFloat(parentButton.getAttribute("data-price"))
-        addToCart(name, price)
-      
+
+        if(meat != ""){
+          addToCart(name, price, meat) 
+        }else{
+          addToCart(name, price) 
+        }
+                
     }
 })
 
 //Adiciona os Items a Lista de pedido no Carrinho
 
-function addToCart(name, price) {
+function addToCart(name, price, meat) {
     //const existingItem = cart.find(item => item.name === name)
     //if(existingItem){
      //Se o item já existe, aumenta apenas a quantidade + 1 
@@ -97,6 +96,7 @@ function addToCart(name, price) {
     //}
     cart.push({
       name,
+      meat,
       price,
       quantity: 1,
     })
@@ -105,7 +105,7 @@ function addToCart(name, price) {
 
 //Atualiza o Carrinho
 
-function updateCart(meat, meat2){
+function updateCart(){
     addCartItems.innerHTML = ""
     let total = 0;
   
@@ -117,8 +117,7 @@ function updateCart(meat, meat2){
         <div class="itemPedido">
             <div>
                 <p class="p-pedido">${item.name}</p>
-                <p class="p-pedido p-alternative">${meat}</p>
-                <p class="p-pedido p-alternative">${meat2}</p>
+                <p class="p-pedido p-alternative">${item.meat}</p>
                 <p>Quantidade: <span class="p-count">${item.quantity}<span></p>
                 <p class="p-pedido">R$ ${item.price.toFixed(2)}</p>
             </div>
@@ -213,7 +212,7 @@ buttonFinishOrder.addEventListener("click", function(){
     const itemsCart = cart.map((item) => {
         return (
           `${item.name}; 
-           - Tipo de Carne: ${meat} e ${meat2} 
+           - ${item.meat} 
            - Quantidade: (${item.quantity}); 
            - Preço: R$ ${item.price},00; `
         )
