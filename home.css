@@ -163,7 +163,7 @@ header{
 
 /*Itens do pedido no carrinho*/
 
-.cartItems{
+.cartItems, .typesMeat{
     width: 100%;
     height: 100%;
     padding: 2rem;
@@ -178,11 +178,13 @@ header{
     justify-content: center;
 }
 
-.cart{
+.cart, .choiceTypesMeat{
     width: 100%;
     max-width: 600px;
+    max-height: 550px;
     background-color: white;
     padding: 15px;
+    overflow-y: scroll;
 }
 
 .h2-cart{
@@ -207,7 +209,6 @@ header{
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 15px;
-    overflow: auto;
 }
 
 .btnCloseCart, .btnFinish{
@@ -239,18 +240,62 @@ header{
     font-weight: 500;
 }
 
+.p-alternative{
+    display: block;
+}
+
 .p-count{
     font-size: 16px;
     font-weight: bold;
     border-bottom: 1px solid black;
 }
 
-.removeItem{
+.removeItem, .btn-choice{
     border: none;
     outline: none;
     padding: 15px 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
+
+/*Área da Escolha dos Tipos de Carnes*/
+
+.typesMeat{
+    padding: 3rem;
+}
+
+.choiceTypesMeat{
+    max-height: 550px;
+}
+
+.meat{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn-choice:hover{
+ background-color: #08af08;
+}
+
+.btnNext, .btnCloseChoice{
+    border: .5px solid gray;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btnNext{
+    border: none;
+    background-color: #08af08;
+    color: white;
+}
+
+
+
 
 
 

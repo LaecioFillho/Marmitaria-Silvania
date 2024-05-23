@@ -1,23 +1,58 @@
 const buttonOpenCart = document.querySelector('.btn-cart')
 const buttonCloseCart = document.querySelector('.btnCloseCart')
+const buttonCloseChoice = document.querySelector('.btnCloseChoice')
 const buttonAddItem = document.querySelector('.btn-products')
+const buttonAddMeat = document.querySelector('.btnNext')
 const buttonFinishOrder = document.querySelector('.btnFinish')
+const buttonOpenChoice = [...document.querySelectorAll('.btn-choiceMeat')]
+const buttonChoiceMeat = [...document.querySelectorAll('.btn-choice')]
+
 
 const cartItems = document.querySelector('.cartItems')
 const menu = document.querySelector('.menu')
 const addCartItems = document.querySelector('.addCartItems')
 const totalCart = document.querySelector('.cart-total')
 const countItemsCart = document.querySelector('.cart-count-items')
+const typesMeat = document.querySelector('.typesMeat')
+const MeatAlternative = document.querySelector('.p-alternative')
 
 let cart =[]
+const [buttonsMeat1, buttonsMeat2] = buttonOpenChoice
+const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
 
+//Abrir e Fechar o cart de Escolha de carnes
+buttonsMeat1.addEventListener('click', () => {  
+    typesMeat.style.display = 'flex'
+})
 
+buttonsMeat2.addEventListener('click', () => {  
+    typesMeat.style.display = 'flex'
+})
+
+buttonCloseChoice.addEventListener('click', () => {
+  typesMeat.style.display = 'none'
+})
+
+typesMeat.addEventListener("click", (event) => {
+  if(event.target === typesMeat){
+    typesMeat.style.display = 'none'
+  }
+})
+
+buttonAddMeat.addEventListener('click', () => {
+  cartItems.style.display = 'flex'
+  typesMeat.style.display = 'none'
+  MeatAlternative.style.display = 'block'
+})
+
+//Abrir e Fechar o cart de Pedidos
 buttonOpenCart.addEventListener('click', () => {
     cartItems.style.display = 'flex'
 })
 
 buttonCloseCart.addEventListener('click', () => {
     cartItems.style.display = 'none'
+    typesMeat.style.display = 'none'
 })
 
 cartItems.addEventListener("click", (event) => {
@@ -27,6 +62,18 @@ cartItems.addEventListener("click", (event) => {
 })
 
 //Obtêm as informações do que está sendo adicionado no pedido.
+
+typesMeat.addEventListener("click", (event) => {
+  let parentButton = event.target.closest('.btn-choice')
+  let parentButton2 = event.target.closest('.btn-choice')
+
+  if(parentButton && parentButton2){
+      const meat = parentButton.getAttribute("data-name")
+      const meat2 = parentButton2.getAttribute("data-name")
+      updateCart(meat, meat2)
+    
+  }
+})
 
 menu.addEventListener("click", (event) => {
     let parentButton = event.target.closest('.btn-products')
@@ -42,23 +89,23 @@ menu.addEventListener("click", (event) => {
 //Adiciona os Items a Lista de pedido no Carrinho
 
 function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name)
-    if(existingItem){
+    //const existingItem = cart.find(item => item.name === name)
+    //if(existingItem){
      //Se o item já existe, aumenta apenas a quantidade + 1 
-     existingItem.quantity += 1;
-    }else{
-      cart.push({
-        name,
-        price,
-        quantity: 1,
-      })
-    }
+    // existingItem.quantity += 1;
+    //}else{ 
+    //}
+    cart.push({
+      name,
+      price,
+      quantity: 1,
+    })
     updateCart()
 }
 
 //Atualiza o Carrinho
 
-function updateCart(){
+function updateCart(meat, meat2){
     addCartItems.innerHTML = ""
     let total = 0;
   
@@ -70,6 +117,8 @@ function updateCart(){
         <div class="itemPedido">
             <div>
                 <p class="p-pedido">${item.name}</p>
+                <p class="p-pedido p-alternative">${meat}</p>
+                <p class="p-pedido p-alternative">${meat2}</p>
                 <p>Quantidade: <span class="p-count">${item.quantity}<span></p>
                 <p class="p-pedido">R$ ${item.price.toFixed(2)}</p>
             </div>
@@ -131,7 +180,7 @@ if(isOpen){
   spanItem.classList.add("bg-green-600")
 }else{
   spanItem.classList.remove("bg-green-600")
-  spanItem.classList.add("bg-red-500")
+  spanItem.classList.add(style="backgraund-color: red;")
 }
 
 // Finalizar pedido
@@ -163,7 +212,8 @@ buttonFinishOrder.addEventListener("click", function(){
     //Enviar o pedido para api whats
     const itemsCart = cart.map((item) => {
         return (
-          `- ${item.name}; 
+          `${item.name}; 
+           - Tipo de Carne: ${meat} e ${meat2} 
            - Quantidade: (${item.quantity}); 
            - Preço: R$ ${item.price},00; `
         )
