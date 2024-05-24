@@ -225,10 +225,10 @@ buttonFinishOrder.addEventListener("click", function(){
         return (
           `${item.name}; 
    ${item.meat} 
-   - Quantidade: (${item.quantity}); 
-   - Preço: R$ ${item.price},00; `
+- Quantidade: (${item.quantity}); 
+- Preço: R$ ${item.price},00; `
         )
-    }).join(" ------------------------------- ")
+    }).join("  --------------------------------  ")
 
     const message = encodeURIComponent(itemsCart)
     const phone = "5588998097570"
