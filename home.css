@@ -83,6 +83,7 @@ header{
 
 .product-food{
     width: 100%;
+    min-height: 110px;
     display: flex;
     gap: 8px;
     padding: 10px;
@@ -262,6 +263,7 @@ header{
 
 .choiceTypesMeat{
     max-height: 550px;
+    overflow-y: hidden;
 }
 
 .meat{
