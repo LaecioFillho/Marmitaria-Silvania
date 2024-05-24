@@ -223,8 +223,9 @@ buttonFinishOrder.addEventListener("click", function(){
     //Enviar o pedido para api whats
     const itemsCart = cart.map((item) => {
         return (
-          `${item.name}; 
-   ${item.meat} 
+          ` --------------------------------
+${item.name}; 
+${item.meat} 
 - Quantidade: (${item.quantity}); 
 - Preço: R$ ${item.price},00; `
         )
