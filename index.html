@@ -29,9 +29,18 @@
                 <h1 class="h1-menu">Nosso Cardapio</h1>
             </div>
 
+            <div class="btns-card">
+                <a href="#icomidas" class="btn-busc-card">
+                    Comidas
+                </a>
+                <a href="#ibebidas" class="btn-busc-card">
+                    Bebidas
+                </a>
+            </div>
+
             <!--Produtos de Comidas-->
             <div class="title-menu">
-                <h1 class="h1-menu">Comidas</h1>
+                <h1 class="h1-menu" id="icomidas">Comidas</h1>
             </div>
             <section class="pf">
                 <!--PF - Prato Feito(Baião)-->
@@ -65,6 +74,44 @@
                             <button 
                                 class="btn-pf btn-choiceMeat"
                                 data-name="PF - Prato Feito(Arroz e Feijão)"
+                                data-price=13>
+                                <i class="material-symbols-outlined">add_shopping_cart</i>
+                                Pedir
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                <!--Quentinha(Baião)-->
+                <aside class="product-food">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIle-E3DuNBpQR5Tiu7jaT1qfgZ7SDj2eG6T2cPDg43A&s" alt="" class="img-food">
+
+                    <div class="description-products">
+                        <h2 class="h2-food">Quentinha(Baião)</h2>
+                        <p>Baião, carne, macarrão, farofa ou cuscuz e salada.</p>
+                        <div class="price-button">
+                            <h2 class="h2-food"><span class="text-under">R$ 13,00</span></h2>
+                            <button 
+                                class="btn-pf btn-choiceMeat" 
+                                data-name="PF - Prato Feito(Baião)"
+                                data-price=13>
+                                <i class="material-symbols-outlined">add_shopping_cart</i>
+                                Pedir
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                <!--Quentinha(Arroz e Feijão)-->
+                <aside class="product-food">
+                    <img src="https://nd1.com.br/images/classificados/32/3c44e72736d743b1ce9cc87934a14b4f.jpg" alt="Imagem da Quentinha" class="img-food">
+
+                    <div class="description-products">
+                        <h2 class="h2-food">Quentinha(Arroz e Feijão)</h2>
+                        <p>Arroz e Feijão, carne, macarrão, farofa ou cuscuz e salada.</p>
+                        <div class="price-button">
+                            <h2 class="h2-food"><span class="text-under">R$ 13,00</span></h2>
+                            <button 
+                                class="btn-pf btn-choiceMeat"
+                                data-name="Quentinha"
                                 data-price=13>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
@@ -127,7 +174,7 @@
                             <h2 class="h2-food"><span class="text-under">R$ 16,00</span></h2>
                             <button 
                                 class="btn-products"
-                                data-name="Favada"
+                                data-name="Buchada"
                                 data-price=16>
                                 <i class="material-symbols-outlined">add_shopping_cart</i>
                                 Pedir
@@ -139,7 +186,7 @@
 
             <!--Produtos de Bebidas-->
             <div class="title-menu">
-                <h1 class="h1-menu">Bebidas</h1>
+                <h1 class="h1-menu" id="ibebidas">Bebidas</h1>
             </div>
 
             <section class="products">

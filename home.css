@@ -67,6 +67,35 @@ header{
     font-size: 32px;
 }
 
+.btns-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-bottom: 1px solid black;
+}
+
+.btn-busc-card{
+    border: 1px solid;
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    margin: 10px 0px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-busc-card:hover{
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    transition: 0.2s;
+}
+
 /*Área dos Produtos*/
 
 .products, .pf{
@@ -129,6 +158,10 @@ header{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+#ibebidas{
+    border-top: 1px solid
 }
 
 /*Footer parte do carrinho*/
