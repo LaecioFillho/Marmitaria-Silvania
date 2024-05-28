@@ -21,7 +21,7 @@ let name1 = ""
 let meat = ""
 let price = ""
 let cart =[]
-const [buttonsMeat1, buttonsMeat2] = buttonOpenChoice
+const [buttonsMeat1, buttonsMeat2, buttonsMeat3, buttonsMeat4] = buttonOpenChoice
 const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
 
 //Abrir e Fechar o cart de Escolha de carnes
@@ -30,6 +30,13 @@ buttonsMeat1.addEventListener('click', () => {
 })
 
 buttonsMeat2.addEventListener('click', () => {  
+    typesMeat.style.display = 'flex'
+})
+buttonsMeat3.addEventListener('click', () => {  
+    typesMeat.style.display = 'flex'
+})
+
+buttonsMeat4.addEventListener('click', () => {  
     typesMeat.style.display = 'flex'
 })
 
@@ -75,22 +82,22 @@ pfs.addEventListener("click", (event) => {
         price = parseFloat(parentButton.getAttribute("data-price")) 
         
         typesMeat.addEventListener("click", (event) =>{
-          let parentButton = event.target.closest('.btn-choice')
+          let parentButton2 = event.target.closest('.btn-choice')
           
-            if(parentButton){
-                meat = parentButton.getAttribute("data-name") 
+            if(parentButton2){
+                meat = parentButton2.getAttribute("data-name") 
                 addToCart(name1, price, meat)
-            }     
+            }   
         })  
     }
 })
 
 menu.addEventListener("click", (event) => {
-  let parentButton = event.target.closest('.btn-products')
+  let parentButton3 = event.target.closest('.btn-products')
   
-  if(parentButton){
-      name1 = parentButton.getAttribute("data-name")
-      price = parseFloat(parentButton.getAttribute("data-price")) 
+  if(parentButton3){
+      name1 = parentButton3.getAttribute("data-name")
+      price = parseFloat(parentButton3.getAttribute("data-price")) 
       meat = ""
 
       addToCart(name1, price, meat)
@@ -111,7 +118,7 @@ function addToCart(name, price, meat) {
       meat,
       price,
       quantity: 1,
-    })
+    },)
     updateCart()
 }
 
@@ -187,11 +194,9 @@ const spanItem = document.getElementById("hours-func")
 const isOpen = checkRestaurantOpen();
 
 if(isOpen){
-  spanItem.classList.remove("bg-red-500");
-  spanItem.classList.add("bg-green-600")
+  spanItem.style.backgroundColor = "green"
 }else{
-  spanItem.classList.remove("bg-green-600")
-  spanItem.classList.add(style="backgraund-color: red;")
+  spanItem.style.backgroundColor = "red"
 }
 
 // Finalizar pedido
@@ -215,6 +220,8 @@ buttonFinishOrder.addEventListener("click", function(){
           position: "fixed",
           borderRadius: "10px",
           color: "white",
+          zIndex: "99",
+          fontFamily: "Poppins, sans-serif",
         },
       }).showToast();
       return;
