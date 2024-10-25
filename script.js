@@ -239,7 +239,8 @@ buttonFinishOrder.addEventListener("click", function(){
         )
     }).join("  ")
 
-    const messege = `Total a pagar:    R$ ${totalConta.toFixed(2)}`
+    const messege = `-------------------------------
+                    Total a pagar:    R$ ${totalConta.toFixed(2)}`
     const phone = "5588998097570"
 
     window.open(`https://wa.me/${phone}?text=${itemsCart}${messege}`, "_blank")
