@@ -21,6 +21,7 @@ let name1 = ""
 let meat = ""
 let price = ""
 let cart =[]
+let totalConta = 0
 const [buttonsMeat1, buttonsMeat2, buttonsMeat3, buttonsMeat4] = buttonOpenChoice
 const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
 
@@ -147,6 +148,7 @@ function updateCart(){
         <hr/>
       `
       total += item.price * item.quantity
+      totalConta = total
       addCartItems.appendChild(cartItemElement)
     })
     totalCart.textContent = total.toLocaleString("pt-BR", {
@@ -233,14 +235,14 @@ buttonFinishOrder.addEventListener("click", function(){
           `-------------------------------
           Qtd.     Produtos      Valor R$
           ${""}
-          ${item.quantity}   ${item.name}   ${item.price},00; `
+          ${item.quantity}    ${item.name}    ${item.price},00; `
         )
-    }).join("  --------------------------------  ")
+    }).join(`${totalCart}`)
 
-    const messege = "\nTEstando"
+    const messege = `Total a pagar:    R$ ${totalConta.toFixed(2)}`
     const phone = "5588998097570"
 
-    window.open(`https://wa.me/${phone}?text=${itemsCart}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${itemsCart}${messege}`, "_blank")
 
     updateCart();
 })
