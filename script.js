@@ -237,7 +237,7 @@ buttonFinishOrder.addEventListener("click", function(){
           ${""}
           ${item.quantity}    ${item.name}    ${item.price},00; `
         )
-    }).join(`${totalCart}`)
+    }).join("  ")
 
     const messege = `Total a pagar:    R$ ${totalConta.toFixed(2)}`
     const phone = "5588998097570"
