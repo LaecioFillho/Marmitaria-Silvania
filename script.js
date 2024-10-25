@@ -230,17 +230,17 @@ buttonFinishOrder.addEventListener("click", function(){
     }
 
     //Enviar o pedido para api whats
-    const initial = "Qtd.     Produtos     Valor R$"
+    const initial = "Qtd.     Produtos     Valor R$ "
     const itemsCart = cart.map((item) => {
         return (
-          `-------------------------------
+          ` -------------------------------
           ${""}
           ${item.quantity}    ${item.name}    ${item.price},00;
-          Total                        R$ ${item.price},00`
+                         Total             R$ ${item.price},00 `
         )
     }).join("  ")
 
-    const messege = `-------------------------------
+    const messege = ` -------------------------------
                     Total a pagar:       R$ ${totalConta.toFixed(2)}`
     const phone = "5588998097570"
 
