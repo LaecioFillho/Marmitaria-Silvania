@@ -25,18 +25,18 @@ const [buttonsMeat1, buttonsMeat2, buttonsMeat3, buttonsMeat4] = buttonOpenChoic
 const [btnChoice1, btnChoice2, btnChoice3, btnChoice4, btnChoice5] = buttonChoiceMeat
 
 //Abrir e Fechar o cart de Escolha de carnes
-buttonsMeat1.addEventListener('click', () => {  
+buttonsMeat1.addEventListener('click', () => {
     typesMeat.style.display = 'flex'
 })
 
-buttonsMeat2.addEventListener('click', () => {  
+buttonsMeat2.addEventListener('click', () => {
     typesMeat.style.display = 'flex'
 })
-buttonsMeat3.addEventListener('click', () => {  
+buttonsMeat3.addEventListener('click', () => {
     typesMeat.style.display = 'flex'
 })
 
-buttonsMeat4.addEventListener('click', () => {  
+buttonsMeat4.addEventListener('click', () => {
     typesMeat.style.display = 'flex'
 })
 
@@ -76,28 +76,28 @@ cartItems.addEventListener("click", (event) => {
 
 pfs.addEventListener("click", (event) => {
     let parentButton = event.target.closest('.btn-pf')
-  
+
     if(parentButton){
         name1 = parentButton.getAttribute("data-name")
-        price = parseFloat(parentButton.getAttribute("data-price")) 
-        
+        price = parseFloat(parentButton.getAttribute("data-price"))
+
         typesMeat.addEventListener("click", (event) =>{
           let parentButton2 = event.target.closest('.btn-choice')
-          
+
             if(parentButton2){
-                meat = parentButton2.getAttribute("data-name") 
+                meat = parentButton2.getAttribute("data-name")
                 addToCart(name1, price, meat)
-            }   
-        })  
+            }
+        })
     }
 })
 
 menu.addEventListener("click", (event) => {
   let parentButton3 = event.target.closest('.btn-products')
-  
+
   if(parentButton3){
       name1 = parentButton3.getAttribute("data-name")
-      price = parseFloat(parentButton3.getAttribute("data-price")) 
+      price = parseFloat(parentButton3.getAttribute("data-price"))
       meat = ""
 
       addToCart(name1, price, meat)
@@ -109,9 +109,9 @@ menu.addEventListener("click", (event) => {
 function addToCart(name, price, meat) {
     //const existingItem = cart.find(item => item.name === name)
     //if(existingItem){
-     //Se o item já existe, aumenta apenas a quantidade + 1 
+     //Se o item já existe, aumenta apenas a quantidade + 1
     // existingItem.quantity += 1;
-    //}else{ 
+    //}else{
     //}
     cart.push({
       name,
@@ -127,11 +127,11 @@ function addToCart(name, price, meat) {
 function updateCart(){
     addCartItems.innerHTML = ""
     let total = 0;
-  
+
     cart.forEach(item => {
       const cartItemElement = document.createElement("div");
       cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
-  
+
       cartItemElement.innerHTML = `
         <div class="itemPedido">
             <div>
@@ -163,15 +163,15 @@ addCartItems.addEventListener("click", (event) => {
     if(event.target.classList.contains("removeItem")){
       const name = event.target.getAttribute("data-name")
       removeItemCart(name);
-    } 
+    }
   })
 
   function removeItemCart(name){
     const index = cart.findIndex(item => item.name === name);
-  
+
     if(index !== -1){
       const item = cart[index];
-      
+
       if(item.quantity > 1){
         item.quantity -= 1;
         updateCart();
@@ -186,8 +186,8 @@ addCartItems.addEventListener("click", (event) => {
 function checkRestaurantOpen(){
     const data = new Date();
     const hora = data.getHours();
-    return hora >= 8 && hora < 22; 
-    //true = restaurante está aberto 
+    return hora >= 7 && hora < 22;
+    //true = restaurante está aberto
 }
 
 const spanItem = document.getElementById("hours-func")
@@ -205,7 +205,7 @@ buttonFinishOrder.addEventListener("click", function(){
     const isOpen = checkRestaurantOpen();
 
     if(!isOpen){
-  
+
       Toastify({
         text: "Ops o restaurante está fechado!",
         duration: 3000,
@@ -230,18 +230,17 @@ buttonFinishOrder.addEventListener("click", function(){
     //Enviar o pedido para api whats
     const itemsCart = cart.map((item) => {
         return (
-          ` --------------------------------
-${item.name}; 
-${item.meat} 
-- Quantidade: (${item.quantity}); 
-- Preço: R$ ${item.price},00; `
+          `-------------------------------
+          Qtd.     Produtos      Valor R$
+          ${""}
+          ${item.quantity}   ${item.name}   ${item.price},00; `
         )
     }).join("  --------------------------------  ")
 
-    const message = encodeURIComponent(itemsCart)
+    const messege = "\nTEstando"
     const phone = "5588998097570"
 
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${itemsCart}`, "_blank")
 
     updateCart();
 })
