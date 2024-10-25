@@ -230,20 +230,20 @@ buttonFinishOrder.addEventListener("click", function(){
     }
 
     //Enviar o pedido para api whats
+    const initial = "Qtd.     Produtos      Valor R$"
     const itemsCart = cart.map((item) => {
         return (
           `-------------------------------
-          Qtd.     Produtos      Valor R$
           ${""}
           ${item.quantity}    ${item.name}    ${item.price},00; `
         )
     }).join("  ")
 
     const messege = `-------------------------------
-                    Total a pagar:    R$ ${totalConta.toFixed(2)}`
+                    Total a pagar:       R$ ${totalConta.toFixed(2)}`
     const phone = "5588998097570"
 
-    window.open(`https://wa.me/${phone}?text=${itemsCart}${messege}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${initial}${itemsCart}${messege}`, "_blank")
 
     updateCart();
 })
