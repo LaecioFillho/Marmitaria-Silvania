@@ -230,12 +230,13 @@ buttonFinishOrder.addEventListener("click", function(){
     }
 
     //Enviar o pedido para api whats
-    const initial = "Qtd.     Produtos      Valor R$"
+    const initial = "Qtd.     Produtos     Valor R$"
     const itemsCart = cart.map((item) => {
         return (
           `-------------------------------
           ${""}
-          ${item.quantity}    ${item.name}    ${item.price},00; `
+          ${item.quantity}    ${item.name}    ${item.price},00;
+          Total                        R$ ${item.price},00`
         )
     }).join("  ")
 
